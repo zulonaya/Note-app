@@ -12,3 +12,39 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.sidebar-toggle {
+  position: fixed;
+  z-index: 1;
+  border: 4px solid $white;
+  outline: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: $width__sidebar + 3.8em;
+  margin-top: 1em;
+  background-color: $color__toggle;
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: .5s;
+  
+  &.is-closed {
+    transform: translateX(.3em) rotate(0deg);  
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    color: $white;
+  }
+}
+
+.sidebar {
+  width: $width__sidebar;
+  height: 100vh;
+  background-color: $color__sidebar;
+  transition: .7s;
+  
+  &.is-closed {
+    transform: translateX(-16em);
+  }
+}

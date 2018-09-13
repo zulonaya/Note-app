@@ -18,12 +18,25 @@ class ToDoController extends Controller
     	if($request->input('task'))
     	{
     		$task = new Task;
+            $task->title = $request->input('title');
     		$task->content = $request->input('task');
+            $task->pinned = $this->pinned($request);
+            $task->archive = false;
     		$task->save();
     	}
 
-    	return redirect()->back();
+        return redirect()->back();
     }
+    public function pinned($request)
+        {
+            $pin = $request->input('pin');
+            if($pin == 0){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
 
     public function update($id)
     {
